@@ -20,6 +20,12 @@ namespace mixandmatchv2.Controllers
             return Ok(job);
         }
 
+        public IActionResult ListJobs() {
+
+            List<Job> jobs = _context.getJobs();
+            return Ok(jobs);
+        }
+
        
     }
 }

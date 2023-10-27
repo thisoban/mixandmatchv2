@@ -1,0 +1,33 @@
+version: "3.7"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - ./mixandmatch:/app
+    depends_on:
+      - mysql-server
+  mysql-server:
+    image: mysql:latest
+    container_name: mysql-server-container
+    environment:
+      MYSQL_ROOT_PASSWORD: password123
+    ports:
+      - "3308:3306"
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin-container
+    environment:
+      PMA_ARBITRARY: 1
+      PMA_HOST: mysql-server-container
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: password123
+    ports:
+      - "8234:80"
+    depends_on:
+      - mysql-server

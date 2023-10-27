@@ -17,6 +17,11 @@ namespace mixandmatchv2
             return Jobs.FirstOrDefault(x => x.jobid == jobId);
         }
 
+        internal List<Job> getJobs()
+        {
+            return Jobs.ToList();   
+            throw new NotImplementedException();
+        }
     }
     public class Job
     {
