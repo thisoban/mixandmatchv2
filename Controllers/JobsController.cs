@@ -13,13 +13,27 @@ namespace mixandmatchv2.Controllers
         }
 
         // GET: JobsController/Details/5
-        [HttpGet(Name ="getjob")]
-        public IActionResult  Details(Guid id)
+        [HttpGet("details",Name ="getjob")]
+        public IActionResult  Details(int id)
         {
            Job job = _context.GetJob(id);
+            if(job == null)
+            {
+                return NotFound();
+            }
             return Ok(job);
         }
+        [HttpGet("list", Name = "getjoblist")] // Add a new route for listing all jobs
+        public IActionResult ListJobs()
+        {
+            List<Job> jobs = _context.getJobs(); // Replace with your method to fetch all jobs
+            return Ok(jobs);
+        }
+        //[HttpGet(Name)]
+        //public IActionResult Jobs()
+        //{
+        //    return Ok(_context.getJobs());
+        //}
 
-       
     }
 }

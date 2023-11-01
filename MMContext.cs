@@ -12,15 +12,14 @@ namespace mixandmatchv2
             optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
         }
 
-        public Job GetJob(Guid jobId)
+        public Job GetJob(int jobId)
         {
-            return Jobs.FirstOrDefault(x => x.jobid == jobId);
+            return Jobs.FirstOrDefault(x => x.id == jobId);
         }
 
         internal List<Job> getJobs()
         {
-            return Jobs.ToList();   
-            throw new NotImplementedException();
+            return Jobs.ToList();  
         }
     }
     public class Job
