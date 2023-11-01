@@ -19,7 +19,7 @@ namespace mixandmatchv2.Controllers
            Job job = _context.GetJob(id);
             if(job == null)
             {
-                return NotFound();
+                return NotFound("the job not found");
             }
             return Ok(job);
         }

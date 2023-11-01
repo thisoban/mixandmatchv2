@@ -6,14 +6,16 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "443:80"
-    volumes:
-      - ./mixandmatch:/app
+      - "8080:80"
+    expose:
+      - '8080'
     depends_on:
       - mysql-server
   mysql-server:
     image: mysql:latest
     container_name: mysql-server-container
+    volumes:
+        - database:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: password123
     ports:
@@ -30,4 +32,6 @@ services:
     ports:
       - "8234:80"
     depends_on:
-      - mysql-server
+      - mysql-server  
+volumes:
+  database:

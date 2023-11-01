@@ -23,7 +23,6 @@
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build-env
 WORKDIR /App
 
-
 # Copy everything
 COPY . ./
 # Restore as distinct layers
@@ -37,6 +36,6 @@ RUN dotnet publish "./mixandmatchv2.csproj" -c Release -o out
 FROM mcr.microsoft.com/dotnet/aspnet:7.0
 WORKDIR /App
 COPY --from=build-env /App/out .
-EXPOSE 443
-EXPOSE 80
+#EXPOSE 443
+#EXPOSE 80
 ENTRYPOINT ["dotnet", "mixandmatchv2.dll"]
