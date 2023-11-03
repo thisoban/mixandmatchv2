@@ -5,7 +5,7 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mixandmatchv2", "mixandmatchv2.csproj", "{A9FEF640-7F42-459E-BAAB-A74B2CCE1AFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "..\DTO\DTO.csproj", "{4CC91CD5-20AE-4294-9497-8C45522504B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTO", "../DTO/DTO.csproj", "{4CC91CD5-20AE-4294-9497-8C45522504B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
