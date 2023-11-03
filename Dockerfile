@@ -27,7 +27,7 @@ WORKDIR /App
 COPY . ./
 # Restore as distinct layers
 RUN dotnet restore "./mixandmatchv2.csproj"
-#run dotnet restore ".DTO/DTO.csproj"
+#run dotnet restore "../DTO/DTO.csproj"
 # Build and publish a release
 RUN dotnet publish "./mixandmatchv2.csproj" -c Release -o out
 
@@ -36,6 +36,6 @@ RUN dotnet publish "./mixandmatchv2.csproj" -c Release -o out
 FROM mcr.microsoft.com/dotnet/aspnet:7.0
 WORKDIR /App
 COPY --from=build-env /App/out .
-#EXPOSE 443
+#EXPOSE 8080
 #EXPOSE 80
 ENTRYPOINT ["dotnet", "mixandmatchv2.dll"]

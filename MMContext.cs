@@ -32,6 +32,4 @@ namespace mixandmatchv2
         public int companyid { get; set; }
 
     }
-
-  
 }
